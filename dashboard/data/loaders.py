@@ -893,17 +893,31 @@ def load_ditwah_timeline():
 
 
 @st.cache_data(ttl=300)
-def load_article_lengths():
-    """Load article lengths for distribution analysis."""
+def load_article_character_counts():
+    """Load article character counts for distribution analysis."""
     with get_db() as db:
-        return db.get_article_lengths(date_range_filters())
+        return db.get_article_character_counts(date_range_filters())
 
 
 @st.cache_data(ttl=300)
-def load_ditwah_article_lengths():
-    """Load article lengths for Ditwah articles."""
+def load_ditwah_article_character_counts():
+    """Load article character counts for Ditwah articles."""
     with get_db() as db:
-        return db.get_article_lengths(ditwah_filters())
+        return db.get_article_character_counts(ditwah_filters())
+
+
+@st.cache_data(ttl=300)
+def load_article_word_counts():
+    """Load article word counts for distribution analysis."""
+    with get_db() as db:
+        return db.get_article_word_counts(date_range_filters())
+
+
+@st.cache_data(ttl=300)
+def load_ditwah_article_word_counts():
+    """Load article word counts for Ditwah articles."""
+    with get_db() as db:
+        return db.get_article_word_counts(ditwah_filters())
 
 
 @st.cache_data(ttl=300)
