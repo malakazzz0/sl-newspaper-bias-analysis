@@ -381,7 +381,7 @@ def load_topic_by_source(version_id=None):
 
 @st.cache_data(ttl=300)
 def load_topics_with_keywords(version_id, limit=15):
-    """Load top topics with keywords for selection bias analysis.
+    """Load top topics with keywords.
 
     Returns:
         List of dicts with keys: id, topic_id, name, description, keywords, article_count
@@ -573,7 +573,7 @@ def _find_surprising_gaps(bias_df: pd.DataFrame) -> str:
 
 
 def generate_overall_bias_narrative(version_id: str, bias_data: pd.DataFrame) -> bool:
-    """Generate overall narrative about selection bias patterns and store in topics table.
+    """Generate overall narrative about coverage patterns and store in topics table.
 
     Args:
         version_id: Topic version ID
