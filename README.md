@@ -1,16 +1,13 @@
 # Sri Lanka Newspaper Bias Analysis
 
-![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-
-A data-driven analysis framework for detecting media bias in Sri Lankan English newspapers by examining coverage patterns, topic distribution, and event clustering.
+A data-driven analysis framework for detecting media bias in Sri Lankan English newspapers.
 
 ## Overview
 
 This project provides a framework for analyzing news articles from Sri Lankan newspapers to identify:
 
-- 📰 **Selection bias**: Which topics each source covers (or ignores)
 - 🔍 **Coverage patterns**: How different sources cover the same events
+- 📰 **Selection bias**: Which topics each source covers (or ignores)
 - 🏷️ **Topic discovery**: Data-driven topic categorization using BERTopic
 - 📊 **Event clustering**: Grouping articles about the same events across sources
 - 😊 **Sentiment analysis**: Emotional tone across sources and topics
