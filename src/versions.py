@@ -46,9 +46,7 @@ def get_default_config() -> Dict[str, Any]:
             }
         },
         "clustering": {
-            "similarity_threshold": config["clustering"]["similarity_threshold"],
-            "time_window_days": config["clustering"]["time_window_days"],
-            "min_cluster_size": config["clustering"]["min_cluster_size"]
+            "storage_threshold": config["clustering"].get("storage_threshold", 0.5)
         }
     }
 
@@ -110,9 +108,7 @@ def get_default_clustering_config() -> Dict[str, Any]:
             "model": config["embeddings"]["model"]
         },
         "clustering": {
-            "similarity_threshold": config["clustering"]["similarity_threshold"],
-            "time_window_days": config["clustering"]["time_window_days"],
-            "min_cluster_size": config["clustering"]["min_cluster_size"]
+            "storage_threshold": config["clustering"].get("storage_threshold", 0.5)
         }
     }
 
