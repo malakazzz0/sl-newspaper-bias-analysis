@@ -77,6 +77,19 @@ CREATE TABLE IF NOT EXISTS media_bias.event_clusters (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
+-- Pairwise article similarity edges (for dynamic runtime clustering)
+-- Pipeline stores all pairs >= storage_threshold; dashboard applies threshold + date window at render time
+CREATE TABLE IF NOT EXISTS media_bias.article_similarity_edges (
+    result_version_id UUID NOT NULL REFERENCES media_bias.result_versions(id) ON DELETE CASCADE,
+    article_id_a UUID NOT NULL,
+    article_id_b UUID NOT NULL,
+    similarity_score FLOAT NOT NULL,
+    PRIMARY KEY (result_version_id, article_id_a, article_id_b),
+    CHECK (article_id_a < article_id_b)  -- undirected: no duplicate pairs
+);
+CREATE INDEX IF NOT EXISTS idx_similarity_edges_version_score
+    ON media_bias.article_similarity_edges (result_version_id, similarity_score);
+
 -- Article to cluster mapping
 CREATE TABLE IF NOT EXISTS media_bias.article_clusters (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
