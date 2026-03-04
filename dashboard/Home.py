@@ -12,7 +12,7 @@ from data.loaders import load_overview_stats
 from components.source_mapping import SOURCE_NAMES
 from components.styling import apply_page_style
 
-# Page config
+
 st.set_page_config(
     page_title="Sri Lanka Media Bias Detector",
     page_icon="",
@@ -25,10 +25,8 @@ apply_page_style()
 st.title("Sri Lanka Media Bias Detector")
 st.markdown("Analyzing coverage patterns across Sri Lankan English newspapers")
 
-# Load overview stats
 stats = load_overview_stats()
 
-# Overview metrics
 st.header("Overview")
 col1, col2, col3 = st.columns(3)
 
